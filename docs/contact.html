@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects — Victor Verde Neri</title>
+  <title>Contact — Victor Verde Neri</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -61,7 +61,10 @@
       font-family: 'Lora', serif;
       font-size: 0.88rem; color: var(--muted);
       text-decoration: none; letter-spacing: 0.01em;
+      transition: color 0.15s;
     }
+
+    .nav-name:hover { color: var(--ink); }
 
     .nav-links { display: flex; gap: 1.8rem; list-style: none; }
 
@@ -96,64 +99,50 @@
       font-size: 0.85rem; color: var(--muted);
     }
 
-    /* Project card — left red bar, content right */
-    .project-item {
+    .contact-note {
+      font-size: 0.97rem;
+      line-height: 1.85;
+      color: #333;
+      max-width: 52ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .contact-row {
       display: grid;
-      grid-template-columns: 4px 1fr;
-      gap: 1.8rem;
-      padding: 2rem 0;
+      grid-template-columns: 100px 1fr;
+      gap: 1rem;
+      padding: 1rem 0;
       border-bottom: 1px solid var(--rule);
-      align-items: start;
+      align-items: baseline;
+      font-size: 0.9rem;
     }
 
-    .project-item:first-of-type { border-top: 1px solid var(--rule); }
+    .contact-row:first-child { border-top: 1px solid var(--rule); }
 
-    .project-bar {
-      background: var(--red);
-      height: 100%;
-      min-height: 80px;
-      align-self: stretch;
-    }
-
-    .project-body {}
-
-    .project-status {
-      font-size: 0.68rem;
+    .contact-label {
+      font-size: 0.72rem;
       font-weight: 500;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--red);
-      margin-bottom: 0.4rem;
     }
 
-    .project-title {
-      font-family: 'Lora', serif;
-      font-size: 1.1rem; font-weight: 600;
-      line-height: 1.3; margin-bottom: 0.7rem;
-      letter-spacing: -0.01em;
+    .contact-value a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
     }
 
-    .project-desc {
-      font-size: 0.93rem;
-      line-height: 1.8;
-      color: #444;
-      max-width: 58ch;
-    }
-
-    .project-desc p + p { margin-top: 0.8rem; }
-
-    .project-tags {
-      display: flex; flex-wrap: wrap;
-      gap: 0.4rem; margin-top: 1rem;
-    }
-
-    .tag {
-      font-size: 0.7rem;
-      letter-spacing: 0.04em;
-      padding: 0.18rem 0.6rem;
-      border: 1px solid var(--rule);
-      color: var(--muted);
-      background: #fff;
+    .contact-value a:hover {
+      color: var(--red);
+      border-color: var(--red);
     }
 
     footer {
@@ -168,8 +157,7 @@
     @media (max-width: 600px) {
       nav { flex-wrap: wrap; gap: 0.8rem; padding: 1.5rem 1.5rem 0; }
       main { padding: 2.5rem 1.5rem 4rem; }
-      .project-item { grid-template-columns: 1fr; }
-      .project-bar { display: none; }
+      .contact-row { grid-template-columns: 1fr; gap: 0.2rem; }
     }
   </style>
 </head>
@@ -180,64 +168,55 @@
     <ul class="nav-links">
       <li><a href="research.html">Research</a></li>
       <li><a href="publications.html">Publications</a></li>
-      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="projects.html">Projects</a></li>
       <li><a href="cv.html">CV</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
   </nav>
 
   <main>
     <div class="page-header">
-      <h1>Projects</h1>
-      <p>Current and ongoing research projects.</p>
+      <h1>Contact</h1>
+      <p>Cold contacts and academic inquiries are always welcome.</p>
     </div>
 
-    <div class="project-item">
-      <div class="project-bar"></div>
-      <div class="project-body">
-        <div class="project-status">In Progress</div>
-        <div class="project-title">[Project Title — Dissertation or Main Project]</div>
-        <div class="project-desc">
-          <p>[Describe what this project is about — the central question, the case or setting, why it matters. Write this as you would explain it to someone curious but outside your field.]</p>
-          <p>[Second paragraph if needed — methods, data sources, where the project currently stands.]</p>
-        </div>
-        <div class="project-tags">
-          <span class="tag">[Method]</span>
-          <span class="tag">[Theme]</span>
-          <span class="tag">[Theme]</span>
-        </div>
+    <p class="contact-note">
+      Feel free to reach out about my research, potential collaborations, or anything else you're curious about. I'm happy to hear from researchers, students, and anyone interested in the work.
+    </p>
+
+    <div class="contact-rows">
+
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <span class="contact-value"><a href="mailto:vverdeneri@ucsd.edu">vverdeneri@ucsd.edu</a></span>
       </div>
-    </div>
 
-    <div class="project-item">
-      <div class="project-bar"></div>
-      <div class="project-body">
-        <div class="project-status">In Progress</div>
-        <div class="project-title">[Second Project Title]</div>
-        <div class="project-desc">
-          <p>[Describe this project. What question does it ask? What data or methods are you using? What have you found so far, or what do you expect to find?]</p>
-        </div>
-        <div class="project-tags">
-          <span class="tag">[Method]</span>
-          <span class="tag">[Theme]</span>
-        </div>
+      <div class="contact-row">
+        <span class="contact-label">Twitter</span>
+        <span class="contact-value"><a href="#">@yourhandle</a></span>
       </div>
-    </div>
 
-    <div class="project-item">
-      <div class="project-bar"></div>
-      <div class="project-body">
-        <div class="project-status">Early Stage</div>
-        <div class="project-title">[Third Project Title]</div>
-        <div class="project-desc">
-          <p>[A shorter description for a project still in early development.]</p>
-        </div>
-        <div class="project-tags">
-          <span class="tag">[Theme]</span>
-        </div>
+      <div class="contact-row">
+        <span class="contact-label">Bluesky</span>
+        <span class="contact-value"><a href="#">@yourhandle.bsky.social</a></span>
       </div>
-    </div>
 
+      <div class="contact-row">
+        <span class="contact-label">GitHub</span>
+        <span class="contact-value"><a href="https://github.com/relampago-bebe">relampago-bebe</a></span>
+      </div>
+
+      <div class="contact-row">
+        <span class="contact-label">Google Scholar</span>
+        <span class="contact-value"><a href="#">Victor Verde Neri</a></span>
+      </div>
+
+      <div class="contact-row">
+        <span class="contact-label">Office</span>
+        <span class="contact-value">[Building & Room], UC San Diego</span>
+      </div>
+
+    </div>
   </main>
 
   <footer>
