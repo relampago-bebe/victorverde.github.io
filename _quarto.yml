@@ -1,19 +1,11 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "Victor Verde Neri"
-  navbar:
-    left:
-      - href: index.qmd
-        text: About
-      - href: cv.qmd
-        text: CV
-      - href: research.qmd
-        text: Research
 
 format:
   html:
     theme: none
-    css: style.css
     toc: false
