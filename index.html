@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victor Verde Neri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F7F5F0;
+      --red:   #C8200E;
+      --black: #1a1a1a;
+      --ink:   #1a1a1a;
+      --muted: #6b6b6b;
+      --rule:  #e0ddd8;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ── CONSTRUCTIVIST SHAPES ── */
+
+    /* Shape 1: jagged black shard, top-right.
+       Like the heavy torn blocks in the poster references. */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 300px;
+      background: var(--black);
+      clip-path: polygon(
+        100% 0%,
+        100% 100%,
+        60% 100%,
+        75% 68%,
+        40% 52%,
+        65% 28%,
+        30% 10%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Shape 2: red angular wedge, bottom-left.
+       Like the heavy red blocks in the propaganda-style posters. */
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 300px;
+      height: 180px;
+      background: var(--red);
+      clip-path: polygon(
+        0% 100%,
+        100% 100%,
+        100% 55%,
+        65% 48%,
+        80% 20%,
+        25% 35%,
+        0% 10%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: relative;
+      z-index: 10;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2rem 2.5rem 0;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: 'Lora', serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── MAIN ── */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 5rem;
+    }
+
+    .home-grid {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* ── LEFT: BIO ── */
+    .bio h1 {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      margin-bottom: 0.3rem;
+    }
+
+    .bio .role {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .bio .role a {
+      color: var(--red);
+      text-decoration: none;
+    }
+
+    .bio .role a:hover { text-decoration: underline; }
+
+    .bio-text {
+      font-size: 0.97rem;
+      line-height: 1.85;
+      color: #333;
+    }
+
+    .bio-text p + p { margin-top: 1rem; }
+
+    .bio-links {
+      margin-top: 2.2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .bio-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .bio-links a:hover { color: var(--ink); }
+    .bio-links .sep { color: var(--rule); user-select: none; }
+
+    /* ── RIGHT: PHOTO ── */
+    .photo-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 0.4rem;
+    }
+
+    .photo-frame {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: #d0ccc4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Lora', serif;
+      font-size: 2.5rem;
+      color: var(--ink);
+      position: relative;
+    }
+
+    /* Red triangle cut into bottom-right corner of photo */
+    .photo-frame::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 70px;
+      height: 70px;
+      background: var(--red);
+      clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 1.2rem 2.5rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: #bbb;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .home-grid { grid-template-columns: 1fr; }
+      .photo-col { order: -1; max-width: 200px; align-self: center; margin: 0 auto; }
+      nav { flex-wrap: wrap; gap: 0.8rem; padding: 1.5rem 1.5rem 0; }
+      main { padding: 2.5rem 1.5rem 4rem; }
+      footer { padding: 1rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="#">Victor Verde Neri</a>
+    <ul class="nav-links">
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="home-grid">
+
+      <!-- LEFT: BIO -->
+      <div class="bio">
+        <h1>Victor Verde Neri</h1>
+        <p class="role">
+          PhD Student in Sociology ·
+          <a href="https://sociology.ucsd.edu">UC San Diego</a>
+        </p>
+
+        <div class="bio-text">
+          <p>Hi! I'm Victor. [Write your opening paragraph here — who you are, where you're from, what brought you to sociology. Keep it warm and human, the way you'd introduce yourself to a curious stranger at a conference.]</p>
+
+          <p>[Second paragraph — what you study, the questions that keep you up at night, the tensions or puzzles that drive your research. This is where your intellectual identity lives.]</p>
+
+          <p>[Third paragraph — methods, affiliations, or anything else that situates your work. You can also end with something personal: a spare time activity, a place, something that makes you you.]</p>
+        </div>
+
+        <div class="bio-links" id="contact">
+          <a href="mailto:vverdeneri@ucsd.edu">vverdeneri@ucsd.edu</a>
+          <span class="sep">·</span>
+          <a href="#">Twitter</a>
+          <span class="sep">·</span>
+          <a href="#">Bluesky</a>
+          <span class="sep">·</span>
+          <a href="#">Google Scholar</a>
+          <span class="sep">·</span>
+          <a href="https://github.com/relampago-bebe">GitHub</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: PHOTO -->
+      <div class="photo-col">
+        <div class="photo-frame">
+          <!-- Replace with: <img src="photo.jpg" alt="Victor Verde Neri"> -->
+          VVN
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <span>Victor Verde Neri</span>
+    <span>UC San Diego · Sociology</span>
+  </footer>
+
+</body>
+</html>
