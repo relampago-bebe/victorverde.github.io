@@ -1,0 +1,6 @@
+
+Hello, my name is Victor Verde Neri. I am a PhD Student at UC San Diego. I consider myself an interdisciplinary social scientist with an emphasis on Political Sociology. At its core, my research asks about how power is exercised to create social boundaries and exert forms of conduction/control, either us to ourselves, or states towards their populations. This has led me to study empirically the role of state rationalities in citizenship law, how individuals understand their citizenship status when having more than 1 citizenship, and broader themes through which populist political projects proyect and perform social boundaries. I am interested in world-comparative studies, but my current empirical cases are ther U.S. and Mexico.    
+
+Given my interdisciplinary formation (I have completed studies on psychology, philosophy, and sociology) I consider myself a methodological pluralist. I have expertise on discourse analysis, interviews, historical-comparative methods, and computational text analysis. 
+
+I am currently focused on two projects. The first is an interview based study, using 50 interviews on the reasons why MEexicans born in the US apply for mexican citizenship. My second project  
