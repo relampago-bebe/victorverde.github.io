@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Victor Verde Neri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F7F5F0;
+      --red:   #C8200E;
+      --black: #1a1a1a;
+      --ink:   #1a1a1a;
+      --muted: #6b6b6b;
+      --rule:  #e0ddd8;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; right: 0;
+      width: 200px; height: 300px;
+      background: var(--black);
+      clip-path: polygon(100% 0%,100% 100%,60% 100%,75% 68%,40% 52%,65% 28%,30% 10%);
+      pointer-events: none; z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: 0; left: 0;
+      width: 300px; height: 180px;
+      background: var(--red);
+      clip-path: polygon(0% 100%,100% 100%,100% 55%,65% 48%,80% 20%,25% 35%,0% 10%);
+      pointer-events: none; z-index: 0;
+    }
+
+    nav {
+      position: relative; z-index: 10;
+      max-width: 820px; margin: 0 auto;
+      padding: 2rem 2.5rem 0;
+      display: flex; align-items: baseline; justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: 'Lora', serif;
+      font-size: 0.88rem; color: var(--muted);
+      text-decoration: none; letter-spacing: 0.01em;
+    }
+
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 400;
+      color: var(--muted); text-decoration: none;
+      letter-spacing: 0.02em; transition: color 0.15s;
+    }
+
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+
+    main {
+      position: relative; z-index: 1;
+      max-width: 820px; margin: 0 auto;
+      padding: 4rem 2.5rem 6rem;
+    }
+
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--ink);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Lora', serif;
+      font-size: 2rem; font-weight: 600;
+      letter-spacing: -0.015em;
+    }
+
+    .cv-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--red);
+      text-decoration: none;
+      border-bottom: 1px solid var(--red);
+      padding-bottom: 0.05rem;
+      transition: opacity 0.15s;
+      white-space: nowrap;
+    }
+
+    .cv-download:hover { opacity: 0.65; }
+
+    /* Two-column CV layout: label left, content right */
+    .cv-section {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 2.5rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .cv-section:first-of-type { border-top: 1px solid var(--rule); }
+
+    .cv-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      padding-top: 0.15rem;
+    }
+
+    .cv-content {}
+
+    /* CV entry */
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0.5rem 1rem;
+      margin-bottom: 1.2rem;
+      align-items: baseline;
+    }
+
+    .cv-entry:last-child { margin-bottom: 0; }
+
+    .cv-entry-year {
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding-top: 0.15rem;
+    }
+
+    .cv-entry-body {}
+
+    .cv-entry-title {
+      font-family: 'Lora', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.35;
+      margin-bottom: 0.15rem;
+    }
+
+    .cv-entry-sub {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      position: relative; z-index: 1;
+      max-width: 820px; margin: 0 auto;
+      padding: 1.2rem 2.5rem;
+      border-top: 1px solid var(--rule);
+      display: flex; justify-content: space-between;
+      font-size: 0.72rem; color: #bbb;
+    }
+
+    @media (max-width: 600px) {
+      nav { flex-wrap: wrap; gap: 0.8rem; padding: 1.5rem 1.5rem 0; }
+      main { padding: 2.5rem 1.5rem 4rem; }
+      .cv-section { grid-template-columns: 1fr; gap: 0.5rem; }
+      .cv-label { padding-bottom: 0.5rem; }
+      .cv-entry { grid-template-columns: 1fr; }
+      .cv-entry-year { color: var(--muted); font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="index4.html">Victor Verde Neri</a>
+    <ul class="nav-links">
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="cv.html" class="active">CV</a></li>
+      <li><a href="index4.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <h1>Curriculum Vitae</h1>
+      <a class="cv-download" href="cv.pdf">Download PDF ↓</a>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="cv-section">
+      <div class="cv-label">Education</div>
+      <div class="cv-content">
+
+        <div class="cv-entry">
+          <div class="cv-entry-year">2022–</div>
+          <div class="cv-entry-body">
+            <div class="cv-entry-title">PhD in Sociology</div>
+            <div class="cv-entry-sub">University of California, San Diego</div>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-year">[Year]</div>
+          <div class="cv-entry-body">
+            <div class="cv-entry-title">[MA or BA degree]</div>
+            <div class="cv-entry-sub">[Institution]</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PUBLICATIONS -->
+    <div class="cv-section">
+      <div class="cv-label">Publications</div>
+      <div class="cv-content">
+
+        <div class="cv-entry">
+          <div class="cv-entry-year">2025</div>
+          <div class="cv-entry-body">
+            <div class="cv-entry-title">[Paper Title]</div>
+            <div class="cv-entry-sub"><em>[Journal Name]</em>. Forthcoming.</div>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-year">2024</div>
+          <div class="cv-entry-body">
+            <div class="cv-entry-title">[Paper Title]</div>
+            <div class="cv-entry-sub"><em>[Journal Name]</em>, Vol. X, pp. X–X.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PRESENTATIONS -->
+    <div class="cv-section">
+      <div class="cv-label">Presentations</div>
+      <div class="cv-content">
+
+        <div class="cv-entry">
+          <div class="cv-entry-year">2024</div>
+          <div class="cv-entry-body">
+            <div class="cv-entry-title">[Presentation Title]</div>
+            <div class="cv-entry-sub">[Conference Name], [City].</div>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-year">2023</div>
+          <div class="cv-entry-body">
+            <div class="cv-entry-title">[Presentation Title]</div>
+            <div class="cv-entry-sub">[Conference Name], [City].</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TEACHING -->
+    <div class="cv-section">
+      <div class="cv-label">Teaching</div>
+      <div class="cv-content">
+
+        <div class="cv-entry">
+          <div class="cv-entry-year">[Year]</div>
+          <div class="cv-entry-body">
+            <div class="cv-entry-title">[Course Name]</div>
+            <div class="cv-entry-sub">Teaching Assistant · UC San Diego</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AWARDS -->
+    <div class="cv-section">
+      <div class="cv-label">Awards &amp; Funding</div>
+      <div class="cv-content">
+
+        <div class="cv-entry">
+          <div class="cv-entry-year">[Year]</div>
+          <div class="cv-entry-body">
+            <div class="cv-entry-title">[Fellowship or Award Name]</div>
+            <div class="cv-entry-sub">[Granting institution]</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AFFILIATIONS -->
+    <div class="cv-section">
+      <div class="cv-label">Affiliations</div>
+      <div class="cv-content">
+
+        <div class="cv-entry">
+          <div class="cv-entry-year"></div>
+          <div class="cv-entry-body">
+            <div class="cv-entry-title">[Lab or Center Name]</div>
+            <div class="cv-entry-sub">Graduate Affiliate · [Institution]</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>Victor Verde Neri</span>
+    <span>UC San Diego · Sociology</span>
+  </footer>
+
+</body>
+</html>
