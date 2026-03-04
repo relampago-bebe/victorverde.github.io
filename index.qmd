@@ -1,0 +1,24 @@
+---
+title: ""
+---
+
+:::: {.columns}
+::: {.column width="30%"}
+![](photo.jpg)
+:::
+::: {.column width="70%"}
+
+# Victor Verde Neri
+
+PhD Student in Sociology at UC San Diego
+
+[email](mailto:vverdeneri@ucsd.edu) | [CV](/cv) | [GitHub](https://github.com/...)
+
+:::
+::::
+
+Hi! My name is Victor Verde Neri. I am a Sociology PhD Student at UC San Diego. I study [your research area].
+
+[Your research description paragraph here.]
+
+**Contact:** vverdeneri [at] ucsd.edu

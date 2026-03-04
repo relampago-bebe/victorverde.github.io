@@ -1,0 +1,7 @@
+desktop.ini
+.DS_Store
+_site/
+.quarto/
+*_files/
+/.quarto/
+**/*.quarto_ipynb
