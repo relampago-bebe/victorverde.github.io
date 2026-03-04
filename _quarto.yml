@@ -1,6 +1,12 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - publications.html
+    - projects.html
+    - research.html
+    - cv.html
+    - photo.jpg
 
 website:
   title: "Victor Verde Neri"
